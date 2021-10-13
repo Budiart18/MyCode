@@ -5,7 +5,7 @@ for i in range(ulang):
     nama=input("Masukkan NIM Anda : ")
     uts=int(input("Masukkan Nilai UTS : "))
     uas=int(input("Masukkan Nilai UAS : "))
-    print("NIm anda adalah %s nilai UTS anda %i nilai UTS anda %i" % (nama,uts,uas))
+    print("NIM anda adalah %s nilai UTS anda %i nilai UTS anda %i" % (nama,uts,uas))
     print("-------------------------------------\n")
 
 
