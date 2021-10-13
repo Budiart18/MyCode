@@ -41,5 +41,5 @@ print("="*70)
 print("\t\t\t\t Jumlah Bayar \t = \t Rp.%i" % (jumlah_bayar))
 pajak = jumlah_bayar*10/100
 print("\t\t\t\t Pajak \t\t = \t Rp.%i" % (pajak))
-total_bayar = jumlah_bayar - pajak
+total_bayar = jumlah_bayar + pajak
 print("\t\t\t\t Total Bayar \t = \t Rp.%i" % (total_bayar))
