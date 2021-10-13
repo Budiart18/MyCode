@@ -41,3 +41,10 @@ print("========================")
 print("Jumlah Nilai Anda = {:.2f}".format(jumlah))
 print("Grade Nilai Anda = ", grade)
 print(lulus)
+
+# Anggota Kelompok
+#   Syamsul bahri : 17210222
+#   Muhammad Viqry Haikal : 17210373
+#   Ragil Budiarto : 17211038
+#   Arif Nur : 17211081
+#   Solihin : 17210376
