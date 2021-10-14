@@ -47,4 +47,4 @@ print(lulus)
 #   Muhammad Viqry Haikal : 17210373
 #   Ragil Budiarto : 17211038
 #   Arif Nur : 17211081
-#   Solihin : 17210376
+#   Solichin : 17210376
