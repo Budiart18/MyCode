@@ -3,11 +3,11 @@ nama = input("Masukkann Nama = ")
 kelas = input("Masukkan Kelas = ")
 matakuliah = input("Masukkan Mata Kuliah = ")
 
-absen = int(input("Masukkan Nilai Absen = "))
-tugas1 = int(input("Masukkan Nilai Tugas 1 = "))
-tugas2 = int(input("Masukkan Nilai Tugas 2 = "))
-uts = int(input("Masukkan Nilai UTS = "))
-uas = int(input("Masukkan Nilai UAS = "))
+absen = float(input("Masukkan Nilai Absen = "))
+tugas1 = float(input("Masukkan Nilai Tugas 1 = "))
+tugas2 = float(input("Masukkan Nilai Tugas 2 = "))
+uts = float(input("Masukkan Nilai UTS = "))
+uas = float(input("Masukkan Nilai UAS = "))
 
 jumlah = (absen*0.2) + (tugas1*0.1) + (tugas2*0.1) + (uts*0.3) + (uas*0.3)
 
