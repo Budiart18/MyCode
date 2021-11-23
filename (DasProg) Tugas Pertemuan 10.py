@@ -62,3 +62,9 @@ data_nilai = pd.DataFrame(nilai)
 print(" DAFTAR NILAI ".center(100,"="))
 print(data_nilai)
 print("="*100)
+
+#Tugas Dasar Pemrograman Pertemuan 10
+#Nama : Ragil Budiarto
+#NIM : 17211038
+#Kelas : 17.1C.12
+
