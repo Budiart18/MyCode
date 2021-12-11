@@ -2,25 +2,54 @@ import pandas as pd
 
 #Fungsi Login
 def login():
-    print("=" * 50)
+    print("=" * 45)
     print("Halaman Login Kasir Ayam Digeprek")
     username = input("Masukan Username: ")
     password = input("Masukan Password: ")
-    if username == "admin" and password == "adminpass":
-        print("Login berhasil...\n\n")
+    if username == "admin" and password == "admin":
+        print("Login berhasil...")
+        print("=" *45)
         main_menu()
     else:
         print("Login gagal. Silahkan coba lagi...")
+        print("=" * 45)
         login()
         
+#Perkenalan anggota menggunakan OOP
+class mahasiswa:    
+    def __init__(self, nama, nim):
+        self.nim = nim
+        self.nama = nama
+    def perkenalan(self):
+        return f" => {self.nama} ({self.nim})"
+mhs1 = mahasiswa("Arif Nur","17211081")
+mhs2 = mahasiswa("Ragil Budiarto","17211038")
+mhs3 = mahasiswa("Solichin","17210376")
+mhs4 = mahasiswa("Syamsul Bahri","17210222")
+mhs5 = mahasiswa("Muhammad Viqry Haikal","17210373")
+def anggota():
+    print("\n")
+    print(" ANGGOTA KELOMPOK 3 ".center(45,"="))
+    print(" KELAS 17.1C.12 ".center(45,"="))
+    print(mhs1.perkenalan())
+    print(mhs2.perkenalan())
+    print(mhs3.perkenalan())
+    print(mhs4.perkenalan())
+    print(mhs5.perkenalan())
+    print("="*45) 
+    pertanyaan()
+            
 #Fungsi Main menu kasir
 def main_menu():
-    print("=" * 10, "MAIN MENU AYAM DIGEPREK", "=" * 10)
+    print("\n")
+    print(" MAIN MENU AYAM DIGEPREK ".center(45,"="))
     print("Selamat Datang Di Ayam Digeprek")
-    print("=" * 10, "Masukan Input Aplikasi", "=" * 10)
+    print(" Masukan Input Aplikasi ".center(45,"="))
     print("1. Daftar Harga")
     print("2. Kasir")
-    print("3. Exit Program") 
+    print("3. Anggota")
+    print("4. Exit")
+    print("="*45) 
     # input pilihan
     pilihan = input("Pilih menu (1/2/3) = ")
     # pilihan menu
@@ -28,22 +57,28 @@ def main_menu():
         daftar_harga()
     elif pilihan == "2":
         kasir()
+    elif pilihan == "3":
+        anggota()
     else:
         print("Program Exit")
         exit()
 
 #Fungsi Daftar harga     
 def daftar_harga():
-    print("DAFTAR HARGA AYAM DIGEPREK".center(70," "))
-    print("="*70)
+    print("\n")
+    print("="*45)
+    print("DAFTAR HARGA AYAM DIGEPREK".center(45," "))
+    print("="*45)
     print("NO. \t JENIS \t\t HARGA SATUAN")
     print("1. \t DADA \t\t Rp. 2500")
     print("2. \t PAHA \t\t Rp. 2000")
     print("3. \t SAYAP \t\t Rp. 1000")
+    print("="*45)
     pertanyaan()
               
 #Fungsi Kasir
 def kasir():
+    print("\n")
     #Inisialisasi List
     list_kode = []
     list_jenis = []
@@ -95,15 +130,17 @@ def kasir():
     }
     data_order = pd.DataFrame(data)
     #Cetak Output
+    print("\n")
     print("AYAM DIGEPREK".center(60," "))
     print("="*60)
     print(data_order)
     print("="*60)
-    print("\t\t\t Jumlah Bayar \t = \t Rp.%i" % (jumlah_bayar))
-    print("\t\t\t Pajak \t\t = \t Rp.%i" % (pajak))
-    print("\t\t\t Total Bayar \t = \t Rp.%i" % (total_bayar))
-    print("Uang Anda \t = \t Rp.%i" % (uang_bayar))
-    print("Uang Kembalian \t = \t Rp.%i" % (uang_kembalian))
+    print(f"\t\t\t Jumlah Bayar \t = \t Rp.{jumlah_bayar}")
+    print(f"\t\t\t Pajak \t\t = \t Rp.{pajak}")
+    print(f"\t\t\t Total Bayar \t = \t Rp.{total_bayar}")
+    print(f"Uang Anda \t = \t Rp.{uang_bayar}")
+    print(f"Uang Kembalian \t = \t Rp.{uang_kembalian}")
+    print("\n")
     counter_kasir()
     
 #Fungsi Counter kasir untuk mengulang
