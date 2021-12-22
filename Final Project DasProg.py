@@ -1,6 +1,6 @@
 import pandas as pd
 
-#Fungsi Login
+#Fungsi Login (User = admin, Password = admin)
 def login():
     print("=" * 45)
     print("Halaman Login Kasir Ayam Digeprek")
@@ -21,7 +21,7 @@ class mahasiswa:
         self.nim = nim
         self.nama = nama
     def perkenalan(self):
-        return f" => {self.nama} ({self.nim})"
+        print(f" => {self.nama} ({self.nim})")
 mhs1 = mahasiswa("Arif Nur","17211081")
 mhs2 = mahasiswa("Ragil Budiarto","17211038")
 mhs3 = mahasiswa("Solichin","17210376")
@@ -31,11 +31,11 @@ def anggota():
     print("\n")
     print(" ANGGOTA KELOMPOK 3 ".center(45,"="))
     print(" KELAS 17.1C.12 ".center(45,"="))
-    print(mhs1.perkenalan())
-    print(mhs2.perkenalan())
-    print(mhs3.perkenalan())
-    print(mhs4.perkenalan())
-    print(mhs5.perkenalan())
+    mhs1.perkenalan()
+    mhs2.perkenalan()
+    mhs3.perkenalan()
+    mhs4.perkenalan()
+    mhs5.perkenalan()
     print("="*45) 
     pertanyaan()
             
@@ -43,15 +43,17 @@ def anggota():
 def main_menu():
     print("\n")
     print(" MAIN MENU AYAM DIGEPREK ".center(45,"="))
-    print("Selamat Datang Di Ayam Digeprek")
+    print("Selamat Datang Di Ayam Digeprek".center(45,"="))
     print(" Masukan Input Aplikasi ".center(45,"="))
     print("1. Daftar Harga")
     print("2. Kasir")
     print("3. Anggota")
     print("4. Exit")
     print("="*45) 
+    
     # input pilihan
     pilihan = input("Pilih menu (1/2/3) = ")
+    
     # pilihan menu
     if pilihan == "1":
         daftar_harga()
@@ -70,57 +72,71 @@ def daftar_harga():
     print("DAFTAR HARGA AYAM DIGEPREK".center(45," "))
     print("="*45)
     print("NO. \t JENIS \t\t HARGA SATUAN")
-    print("1. \t DADA \t\t Rp. 2500")
-    print("2. \t PAHA \t\t Rp. 2000")
-    print("3. \t SAYAP \t\t Rp. 1000")
+    print("1. \t DADA \t\t Rp. 25.000")
+    print("2. \t PAHA \t\t Rp. 20.000")
+    print("3. \t SAYAP \t\t Rp. 15.000")
     print("="*45)
     pertanyaan()
               
 #Fungsi Kasir
 def kasir():
     print("\n")
+    
     #Inisialisasi List
     list_kode = []
     list_jenis = []
     list_harga = []
     list_banyak = []
     list_jumlah = []
+    
     #Berapa Banyak jenis order
     banyak_jenis = int(input("Masukkan Banyak Jenis = "))
+    
     #Perulangan Inputan
     jumlah_bayar = 0
     for i in range (banyak_jenis):
         print("Jenis ke - ", str(i+1))
+        
         #Input Kode potong
         list_kode.append(input("Masukkan Kode Potong (D/P/S) = "))
+        
         #Inisialisasi Jenis Potong dan Harga sesuai kode potong
         if list_kode[i] == "D" or list_kode[i] == "d":
             jenis_potong = "Dada"
-            harga = 2500
+            harga = 25000
         elif list_kode[i] == "P" or list_kode[i] == "p":
             jenis_potong = "Paha"
-            harga = 2000
+            harga = 20000
         elif list_kode[i] == "S" or list_kode[i] == "s":
             jenis_potong = "Sayap"
-            harga = 1000
+            harga = 15000
         else:
             jenis_potong = "-"
             harga = 0
         list_jenis.append(jenis_potong)
         list_harga.append(harga)
+        
         #Input Banyak Potong
         list_banyak.append(int(input("Masukkan Banyak Potong = ")))
+        
         #Hitung jumlah yang harus dibayar
         list_jumlah.append(list_harga[i]*list_banyak[i])
         jumlah_bayar = jumlah_bayar + list_jumlah[i]
-    #Input uang yang dibayar
-    uang_bayar = int(input("Masukkan Uang Yang Dibayar = "))
+    
     #Hitung pajak
     pajak = 0.1 * jumlah_bayar
+    
     #Hitung total bayar
     total_bayar = jumlah_bayar + pajak
+    #Print total bayar
+    print(f"Total Bayar = {total_bayar} ")
+    
+    #Input uang yang dibayar
+    uang_bayar = int(input("Masukkan Uang Yang Dibayar = "))
+    
     #Hitung uang kembalian
     uang_kembalian = uang_bayar - total_bayar
+    
     #Set output
     data = {
         "JENIS POTONG" : list_jenis,
@@ -129,6 +145,7 @@ def kasir():
         "JUMLAH BELI" : list_jumlah
     }
     data_order = pd.DataFrame(data)
+    
     #Cetak Output
     print("\n")
     print("AYAM DIGEPREK".center(60," "))
@@ -141,18 +158,18 @@ def kasir():
     print(f"Uang Anda \t = \t Rp.{uang_bayar}")
     print(f"Uang Kembalian \t = \t Rp.{uang_kembalian}")
     print("\n")
-    counter_kasir()
+    ulang_kasir()
     
-#Fungsi Counter kasir untuk mengulang
-def counter_kasir():
-    counter = input("Hitung lagi? (y/n) = ")
-    if counter == "y":
+#Fungsi untuk mengulang kasir
+def ulang_kasir():
+    ulang = input("Hitung lagi? (y/n) = ")
+    if ulang == "y":
         kasir()
-    elif counter == "n":
+    elif ulang == "n":
         pertanyaan()     
     else:
         print("Input program salah harap ulangi")
-        counter_kasir()
+        ulang_kasir()
         
 #Fungsi Tanya untuk kembali ke main menu
 def pertanyaan():
